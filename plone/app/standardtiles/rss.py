@@ -2,6 +2,7 @@
 from DateTime import DateTime
 from plone.app.standardtiles import PloneMessageFactory as _
 from plone.supermodel.model import Schema
+from plone.supermodel.model import fieldset
 from plone.tiles.tile import Tile
 from zope import schema
 from zope.component import getMultiAdapter
@@ -42,6 +43,11 @@ class IRSSTile(Schema):
         description=_(u"Link of the RSS feed to display."),
         required=True,
         default=u'')
+
+    fieldset(
+        'timeout',
+        label=u"Timeout",
+        fields=['timeout'])
 
     timeout = schema.Int(
         title=_(u"Feed reload timeout"),
